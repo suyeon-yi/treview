@@ -106,11 +106,11 @@ $(function(){
 			사진 한 장당 크기는 10MB 이내로 등록 가능합니다.
 			<br>사진은 최대 5장까지 등록 가능합니다.
 			<br>사진의 크기는 가로 936px  세로 500px입니다.
-			<br><input name="mainImage" type="file" id="image" class="form-control" >
-			<br><input name="image1" type="file" id="image" class="form-control" >
-			<br><input name="image2" type="file" id="image" class="form-control" >
-			<br><input name="image3" type="file" id="image" class="form-control" >
-			<br><input name="image4" type="file" id="image" class="form-control" >
+			<br><input multiple="multiple" name="mainImage" type="file" id="image" class="form-control" >
+			<br><input multiple="multiple" name="image1" type="file" id="image" class="form-control" >
+			<br><input multiple="multiple" name="image2" type="file" id="image" class="form-control" >
+			<br><input multiple="multiple" name="image3" type="file" id="image" class="form-control" >
+			<br><input multiple="multiple" name="image4" type="file" id="image" class="form-control" >
 		</div>	
 	</div>
 		

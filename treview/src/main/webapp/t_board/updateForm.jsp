@@ -13,6 +13,9 @@ T_boardViewService service = new T_boardViewService();
 T_boardVO vo = service.service(no, 0);
 //데이터를 확인한다.
 System.out.println(vo);
+
+request.setAttribute("vo", vo);
+
 %>
 <!DOCTYPE html>
 <html>
@@ -97,13 +100,13 @@ $(function(){
 		<label for="staff" class="control-label col-sm-2">참여인원</label>
 			<div class="col-sm-10">
 				<label>
-				<input type="radio" name="staff" value="1명" <%=(vo.getStaff().equals("1명"))?"checked" : "" %>>1명
+				<input type="radio" name="staff" value="1명" ${vo.staff eq "1명" ? "checked" : ""} >1명
 				</label>
 				<label>
-				<input type="radio" name="staff" value="2명" <%=(vo.getStaff().equals("2명"))?"checked" : "" %>>2명
+				<input type="radio" name="staff" value="2명" ${vo.staff eq "2명" ? "checked" : ""}>2명
 				</label>
 				<label>
-				<input type="radio" name="staff" value="3명 이상" <%=(vo.getStaff().equals("3명 이상"))?"checked" : "" %>>3명 이상
+				<input type="radio" name="staff" value="3명 이상" ${vo.staff eq "3명 이상" ? "checked" : ""}>3명 이상
 				</label>
 			</div>
 		</div>
@@ -112,11 +115,16 @@ $(function(){
 		<label for="photo" class="control-label col-sm-2">여행사진</label>
 		<div class="col-sm-10">
 			    사진 한 장당 크기는 10MB 이내로 등록 가능합니다.
+			<br>사진은 최대 5장까지 등록 가능합니다.
 			<br>사진의 크기는 가로 936px  세로 500px입니다.
 			<br>
 			<div id="changeImageDiv">
 			<input type="hidden" name="no" value="${vo.no }" >
-			<input type="file" name="oldphoto" required="required">
+			<input multiple="multiple" type="file" name="oldMianImage" required="required">
+			<input multiple="multiple" type="file" name="oldImage1" required="required">
+			<input multiple="multiple" type="file" name="oldImage2" required="required">
+			<input multiple="multiple" type="file" name="oldImage3" required="required">
+			<input multiple="multiple" type="file" name="oldImage4" required="required">
 			</div>	
 			</div>	
 		</div>	

@@ -68,9 +68,7 @@ request.setAttribute("pageObject", pageObject);
 <a href="list.jsp?pt=new" style='${(pt=="new")?style:""}'class="btn btn-default">최신순</a>
 <a href="list.jsp?pt=pop" style='${(pt=="pop")?style:""}'class="btn btn-default">인기순</a>
 </div>
-<c:if test="${!empty login }">
 <a href="writeForm.jsp" class="button button1" style="float: right;">나도 등록하기</a>
-</c:if>
 <p></p>
 <div class="row">
 		

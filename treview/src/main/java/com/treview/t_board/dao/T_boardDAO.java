@@ -271,7 +271,7 @@ public class T_boardDAO {
 			con = DB.getConnection();
 			//3.  sql문을 작성한다.
 			String sql = "UPDATE t_board "
-					+ " SET title =?, place=?, startDate=?, endDate=?, staff=?, photo=?, content=?, tags=?, writer=? "
+					+ " SET title =?, place=?, startDate=?, endDate=?, staff=?, mainImage=?, image1=?, image2=?, image3=?, image4=?,content=?, tags=? "
 					+ " WHERE no = ?";
 			//4.con객체의 prepareStatement(sql)메소드를 호출해 pstmt로 가져온다.
 			pstmt = con.prepareStatement(sql);
@@ -280,9 +280,14 @@ public class T_boardDAO {
 			pstmt.setString(3, vo.getStartDate());
 			pstmt.setString(4, vo.getEndDate());
 			pstmt.setString(5, vo.getStaff());
-			pstmt.setString(7, vo.getContent());
-			pstmt.setString(8, vo.getTags());
-			pstmt.setLong(10, vo.getNo());
+			pstmt.setString(6, vo.getMainImage());
+			pstmt.setString(7, vo.getImage1());
+			pstmt.setString(8, vo.getImage2());
+			pstmt.setString(9, vo.getImage3());
+			pstmt.setString(10, vo.getImage4());
+			pstmt.setString(11, vo.getContent());
+			pstmt.setString(12, vo.getTags());
+			pstmt.setLong(13, vo.getNo());
 			//5.executeUpdate()의 값을 int타입의 result로 받는다.
 			result = pstmt.executeUpdate();
 			//6.출력될 데이터 값이 없으므로 수정이 완료되었다는 문구를 출력한다.

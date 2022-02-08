@@ -1,9 +1,8 @@
-<%@page import="travel.t_board.vo.T_boardVO"%>
-<%@page import="java.io.File"%>
-<%@page import="travel.t_board.service.T_boardUpdateService"%>
-<%@page import="travel.t_board.service.T_boardWriteService"%>
 <%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 <%@page import="com.oreilly.servlet.MultipartRequest"%>
+<%@page import="com.treview.t_board.service.T_boardUpdateService"%>
+<%@page import="com.treview.t_board.vo.T_boardVO"%>
+<%@page import="java.io.File"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -25,11 +24,13 @@ String place = multi.getParameter("place");
 String startDate = multi.getParameter("startDate");
 String endDate = multi.getParameter("endDate");
 String staff = multi.getParameter("staff");
-String photo = multi.getFilesystemName("photo");
+String mainImage = multi.getParameter("mainImage");
+String image1 = multi.getParameter("image1");
+String image2 = multi.getParameter("image2");
+String image3 = multi.getParameter("image3");
+String image4 = multi.getParameter("image4");
 String content = multi.getParameter("content");
 String tags = multi.getParameter("tags"); 
-String writer = multi.getParameter("writer");
-String oldImage = multi.getParameter("oldPhoto");
 
 T_boardVO vo = new T_boardVO();
 vo.setNo(no);
@@ -38,10 +39,13 @@ vo.setPlace(place);
 vo.setStartDate(startDate);
 vo.setEndDate(endDate);
 vo.setStaff(staff);
-vo.setPhoto(path + photo);
+vo.setMainImage(path + mainImage);
+vo.setImage1(path + image1);
+vo.setImage2(path + image2);
+vo.setImage3(path + image3);
+vo.setImage4(path + image4);
 vo.setContent(content);
 vo.setTags(tags);
-vo.setWriter(writer);
 
 System.out.println("update.jsp - vo : " + vo);
 
