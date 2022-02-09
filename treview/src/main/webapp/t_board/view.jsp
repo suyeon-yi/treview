@@ -42,13 +42,73 @@ request.setAttribute("vo", vo);
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+$(function(){
+//좋아요
+	$("#likes_update").click(function(){
+		$.ajax({
+			url: "",
+			type: "post",
+			data: {
+				no : ${vo.no}
+				id : ${vo.id}
+			},
+			success: function(){
+				recCount();
+			}
+		})
+	})
+	
+	function recCount(){
+	$.ajax({
+		url: "",
+		type: "post",
+		data: {
+			no : ${vo.no}
+		},
+		success: funtion (count) {
+			$(".likes_count").html(count);
+		},
+	})
+};
+recCount();
+
+//댓글 입력
+	$("#rep_button").click(function(){
+		if($("#t_board_rep_content").val().trim() === ""){
+			alert("댓글을 입력하세요.");
+			$("#t_board_rep_content").val("").focus();
+		}else{
+			$.ajax({
+				url: "",
+				type: "post",
+				data: {
+					no : ${"#no"}.val(),
+					id : ${"#id"}.val(),
+					t_board_rep_content : ${"#t_board_rep_content"}.val()
+				},
+				success: function(){
+					alert("댓글 등록 완료");
+					$("#t_board_rep_content").val("");
+					getReply();
+				}
+			})
+		}
+	});
+});
+</script>
 </head>
 <body>
 <div class="container">
 <h2>여행 공유</h2>
 <div class="form-group" style="float: right;">
 	<label for="no">번호</label>${vo.no} | <label for="hit">조회수</label>${vo.hit } 
-	| <label for="likes">좋아요</label>${vo.likes}
+	| <c:if test="${empty login }"> <label for="likes">좋아요 </label>${vo.likes }
+		<i class="fa fa-herat" style="font-size: 16px;color: red"></i>
+		<span class="likes_count"></span> </c:if>
+		<c:if test="${!empty login }"> <label for="likes">좋아요 </label>${vo.likes }
+		<button class="w3-button w3-black w3-round" id="likes_update"> 
+		<i class="fa fa-heart" style="font-size: 16px;color: red"></i> &nbsp;<span class="likes_count"></span> </button></c:if> 
 </div>	
 	<div class="title" style="text-align: center;">
 	<h3>${vo.title}</h3>
@@ -111,13 +171,34 @@ request.setAttribute("vo", vo);
       <span class="sr-only">Next</span>
     </a>
   </div>
+  <hr>
 		<div class="content">
 		${vo.content }
 		</div>
+		<hr>
 		<div class="tags">
 		${vo.tags}
 		</div>
-		
+		<hr>
+<div class="w3-border w3-padding"><h4>댓글</h4></div>
+<div class="w3-border w3-padding">
+	<c:if test="${empty login }">
+		<textarea rows="5" cols="150" class="w3-input w3-border newLogin" readonly="readonly">
+		로그인 후 댓글 달기</textarea>
+	</c:if>
+	<c:if test="${!empty login }">
+		<i class="fa fa-user w3-padding-16"></i>${vo.id }
+			<form>
+				<input type="hidden" name="no" id="no" value="${vo.no }">
+				<input type="hidden" name="id" id="id" value="${vo.id }">
+				<textarea rows="5" cols="150" class="w3-input w3-border" 
+					placeholder="댓글을 작성해 주세요." name="t_board_rep_content"
+					id="t_board_rep_content"></textarea>
+				<input type="button" class="w3-button w3-border" id="rep_button" value="댓글 등록">	
+			</form>
+	</c:if>
+</div>
+<hr>
 <div class="text-center">
 <a href="updateForm.jsp?no=${vo.no }" class="btn btn-default">수정</a>
 <a href="delete.jsp?no=${vo.no }" class="btn btn-default">삭제</a>

@@ -65,7 +65,7 @@ $(function(){
 <body>
 <div class="container">
 <h2>여행 공유</h2>
-<form action="update.jsp" method="post" enctype="multipart/form-data" class="form-horizontal">
+<form action="update.jsp" method="post" class="form-horizontal">
 		<div class="form-group">
 			<label for="no" class="control-label col-sm-2" >번호</label>
 			<div class="col-sm-10">
@@ -119,12 +119,14 @@ $(function(){
 			<br>사진의 크기는 가로 936px  세로 500px입니다.
 			<br>
 			<div id="changeImageDiv">
+			<form action="changeImage.jsp" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="no" value="${vo.no }" >
-			<input multiple="multiple" type="file" name="oldMianImage" required="required">
-			<input multiple="multiple" type="file" name="oldImage1" required="required">
-			<input multiple="multiple" type="file" name="oldImage2" required="required">
-			<input multiple="multiple" type="file" name="oldImage3" required="required">
-			<input multiple="multiple" type="file" name="oldImage4" required="required">
+			<input multiple="multiple" type="file" name="OldMainImage" required="required">
+			<input multiple="multiple" type="file" name="OldImage1" required="required">
+			<input multiple="multiple" type="file" name="OldImage2" required="required">
+			<input multiple="multiple" type="file" name="OldImage3" required="required">
+			<input multiple="multiple" type="file" name="OldImage4" required="required">
+			</form>
 			</div>	
 			</div>	
 		</div>	
