@@ -80,7 +80,7 @@ request.setAttribute("pageObject", pageObject);
 			[${vo.no }]
 			<br>${vo.title }
 			<br>${vo.name }(${vo.id })
-			<br>조회수 ${vo.hit } | 좋아요 ${vo.likes }
+			<br>조회수 ${vo.hit }
 			</div>
 		</div>
 		</div>

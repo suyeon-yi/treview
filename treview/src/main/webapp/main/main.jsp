@@ -35,6 +35,8 @@ request.setAttribute("t_boardList", t_boardList);
 <head>
 <meta charset="UTF-8">
 <title>main</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <style type="text/css">
 .imageDataRow:hover, .noticeDataRow:hover, .boardDataRow:hover{
 	background: #eee;
@@ -55,11 +57,38 @@ $(function(){
 	});
 });
 </script>
+<link rel="stylesheet" href="css/custom.css">
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="js/bootstrap.js"></script>
 </head>
 <body>
 <div class="jumbotron text-center">
-  <h1>treview</h1>
-  <p>즐거웠던 여행을 공유하고 소개하는 treview 입니다.</p> 
+ <div class="container">
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="1" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+				<li data-target="#myCarousel" data-slide-to="3"></li>
+			</ol>
+			<div class="carousel-inner">
+				<div class="item active">
+					<img src="/images/1.jpg">
+				</div>
+				<div class="item">
+					<img src="/images/2.jpg">
+				</div>
+				<div class="item">
+					<img src="/images/3.jpg">
+				</div>
+			</div>
+			<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left"></span>
+			</a>
+			<a class="right carousel-control" href="#myCarousel" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right"></span>
+			</a>
+		</div>
+	</div>
 </div>
 	<div class="row">
 		<div class="col-md-4">
