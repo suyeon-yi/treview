@@ -11,7 +11,7 @@
 		<table class="table">
 		<c:forEach items="${t_boardList }" var="vo">
 				<!-- no : 보여줄 글번호, inc - 조회수 증가 여부. 1:증가, 0:미증가 -->
-				<tr class="boardDataRow" data-no="${vo.no }">
+				<tr class="t_boardDataRow" data-no="${vo.no }">
 					<td class="no">${vo.no }</td>
 					<!-- 자바 -> <a href="view.jsp?no=2">자바</a> -->
 					<td>${vo.mainImage }</td>

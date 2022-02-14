@@ -34,11 +34,13 @@ request.setAttribute("t_boardList", t_boardList);
 <html>
 <head>
 <meta charset="UTF-8">
-<title>main</title>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<title>main</title> <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="css/custom.css">
 <style type="text/css">
-.imageDataRow:hover, .noticeDataRow:hover, .boardDataRow:hover{
+.imageDataRow:hover, .noticeDataRow:hover, .t_boardDataRow:hover{
 	background: #eee;
 	cursor: pointer;
 }
@@ -57,14 +59,10 @@ $(function(){
 	});
 });
 </script>
-<link rel="stylesheet" href="css/custom.css">
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script src="js/bootstrap.js"></script>
 </head>
 <body>
-<div class="jumbotron text-center">
  <div class="container">
-		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+		<div id="myCarousel" class="carousel slide" data-ride="carousel" style="width: 100%">
 			<ol class="carousel-indicators">
 				<li data-target="#myCarousel" data-slide-to="1" class="active"></li>
 				<li data-target="#myCarousel" data-slide-to="2"></li>
@@ -89,12 +87,14 @@ $(function(){
 			</a>
 		</div>
 	</div>
-</div>
+	<br/>
 	<div class="row">
 		<div class="col-md-4">
+			팀장님꺼
 			<jsp:include page="/include/imageList.jsp" />
 		</div>
 		<div class="col-md-4">
+			진호꺼
 			<jsp:include page="/include/noticeList.jsp" />
 		</div>
 		<div class="col-md-4">
@@ -103,6 +103,7 @@ $(function(){
 	</div>
 	<div class="row">
 		<div class="col-md-12">
+		     혜진씨꺼
 			<jsp:include page="/include/noticeList.jsp" />
 		</div>
 	</div>

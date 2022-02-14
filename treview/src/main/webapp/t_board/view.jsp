@@ -76,28 +76,30 @@ request.setAttribute("vo", vo);
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
       <li data-target="#myCarousel" data-slide-to="1"></li>
       <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+      <li data-target="#myCarousel" data-slide-to="4"></li>
     </ol>
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <div class="item active">
-        <img src="${vo.mainImage }" alt="${vo.title }" style="width:100%;" name="mainImage">
+        <img src="${vo.mainImage }" alt="${vo.title }" style="width:100%; height: auto;" name="mainImage">
       </div>
 
       <div class="item">
-        <img src="${vo.image1 }" alt="${vo.title }" style="width:100%;" name="image1">
+        <img src="${vo.image1 }" alt="${vo.title }" style="width:100%; height: auto;" name="image1">
       </div>
     
       <div class="item">
-        <img src="${vo.image2 }" alt="${vo.title }" style="width:100%;" name="image2">
+        <img src="${vo.image2 }" alt="${vo.title }" style="width:100%; height: auto;" name="image2">
       </div>
       
       <div class="item">
-        <img src="${vo.image3 }" alt="${vo.title }" style="width:100%;" name="image3">
+        <img src="${vo.image3 }" alt="${vo.title }" style="width:100%; height: auto;" name="image3">
       </div>
       
       <div class="item">
-        <img src="${vo.image4 }" alt="${vo.title }" style="width:100%;"  name="image4">
+        <img src="${vo.image4 }" alt="${vo.title }" style="width:100%; height: auto;"  name="image4">
       </div>
     </div>
 
@@ -122,8 +124,10 @@ request.setAttribute("vo", vo);
 		
 <hr>
 <div class="text-center">
+<c:if test="${!empty login }">
 <a href="updateForm.jsp?no=${vo.no }" class="btn btn-default">수정</a>
 <a href="delete.jsp?no=${vo.no }" class="btn btn-default">삭제</a>
+</c:if>
 <a href="list.jsp?page=${param.page }&perPageNum=${param.perPageNum}" class="btn btn-default">리스트</a>
 </div>
 </div>
